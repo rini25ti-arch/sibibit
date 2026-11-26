@@ -39,12 +39,15 @@ class VarietasController extends Controller
 
     public function update(Request $request, Varietas $varietas)
     {
-        $request->validate([
-            'nama_varietas' => 'required|string|max:255',
-            'deskripsi'     => 'nullable|string',
-            'keunggulan'    => 'nullable|string',
+       $request->validate([
+            'nama_varietas'  => 'required|string|max:255',
+            'kategori_lahan' => 'required|string|max:255',
+            'harga'          => 'required|integer|min:0',
+            'stok'           => 'required|integer|min:0',
+            'deskripsi'      => 'nullable|string',
+            'keunggulan'     => 'nullable|string',
+            'cara_penanaman' => 'nullable|string',
         ]);
-
         $varietas->update($request->all());
 
         return redirect()->route('varietas.index')

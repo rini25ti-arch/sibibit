@@ -29,4 +29,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    protected $fillable = ['name', 'email', 'no_hp', 'role', 'password'];
+
+    public function pesanans()
+    {
+        return $this->hasMany(Pesanan::class);
+    }
 }
